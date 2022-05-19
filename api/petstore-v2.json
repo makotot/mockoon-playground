@@ -1,0 +1,966 @@
+{
+  "uuid": "d4281776-a3c8-46af-b082-672c03c385db",
+  "lastMigration": 19,
+  "name": "Swagger Petstore",
+  "endpointPrefix": "v2",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "38d213db-10c6-44aa-a1c4-6c27644eae0e",
+      "documentation": "uploads an image",
+      "method": "post",
+      "endpoint": "pet/:petId/uploadImage",
+      "responses": [
+        {
+          "uuid": "39e214b2-430c-41c0-9a6e-8e668ac9ffb5",
+          "body": "{\n  \"code\": {{faker 'datatype.number'}},\n  \"type\": \"\",\n  \"message\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "209dacde-3b33-4f98-9d08-0d0eb9614eb8",
+      "documentation": "Add a new pet to the store",
+      "method": "post",
+      "endpoint": "pet",
+      "responses": [
+        {
+          "uuid": "49664165-51c0-4a9e-aebd-736cb6f8086a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 405,
+          "label": "Invalid input",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "68137d44-4e1e-481f-9296-4a0f87cd62da",
+      "documentation": "Update an existing pet",
+      "method": "put",
+      "endpoint": "pet",
+      "responses": [
+        {
+          "uuid": "3c17e37a-a2ae-41a4-ba3f-be99ed268d26",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid ID supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "65c4c149-77ae-4d90-8cb0-1b9bb00c332c",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Pet not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "413c9f6b-4e59-407f-9468-540ea63db504",
+          "body": "",
+          "latency": 0,
+          "statusCode": 405,
+          "label": "Validation exception",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "d1e54ea4-2f3c-445c-9f20-72334b361175",
+      "documentation": "Finds Pets by status",
+      "method": "get",
+      "endpoint": "pet/findByStatus",
+      "responses": [
+        {
+          "uuid": "860b0f6b-a90f-4562-91f8-ac8d897794a7",
+          "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"category\": {\n      \"id\": {{faker 'datatype.number'}},\n      \"name\": \"\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n      \"\"\n    ],\n    \"tags\": [\n      {\n        \"id\": {{faker 'datatype.number'}},\n        \"name\": \"\"\n      }\n    ],\n    \"status\": \"{{oneOf (array 'available' 'pending' 'sold')}}\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "5cd10d40-137f-4467-9249-80db0b09a8cd",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid status value",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "301ba5fa-51b8-46e3-b1df-d585642a2db2",
+      "documentation": "Finds Pets by tags",
+      "method": "get",
+      "endpoint": "pet/findByTags",
+      "responses": [
+        {
+          "uuid": "ef6e03b9-a71c-4344-8921-092339f9e43d",
+          "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"category\": {\n      \"id\": {{faker 'datatype.number'}},\n      \"name\": \"\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n      \"\"\n    ],\n    \"tags\": [\n      {\n        \"id\": {{faker 'datatype.number'}},\n        \"name\": \"\"\n      }\n    ],\n    \"status\": \"{{oneOf (array 'available' 'pending' 'sold')}}\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "f0dfdbdf-1168-4ab3-988c-683f822a7d41",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid tag value",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "89dfb018-a41c-4d8e-a84c-d013c9d75c89",
+      "documentation": "Find pet by ID",
+      "method": "get",
+      "endpoint": "pet/:petId",
+      "responses": [
+        {
+          "uuid": "eaeab512-219b-4805-b37f-810b28eee6b9",
+          "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"category\": {\n    \"id\": {{faker 'datatype.number'}},\n    \"name\": \"\"\n  },\n  \"name\": \"doggie\",\n  \"photoUrls\": [\n    \"\"\n  ],\n  \"tags\": [\n    {\n      \"id\": {{faker 'datatype.number'}},\n      \"name\": \"\"\n    }\n  ],\n  \"status\": \"{{oneOf (array 'available' 'pending' 'sold')}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "5ef07170-e1c6-47ca-a00f-5eb6df61c632",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid ID supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "c3db1bc1-02f6-4a7b-8961-95ebfca8c53c",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Pet not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "bb0559db-bcf6-447f-ae2f-930d80b04dbb",
+      "documentation": "Updates a pet in the store with form data",
+      "method": "post",
+      "endpoint": "pet/:petId",
+      "responses": [
+        {
+          "uuid": "5f47b0e5-3c52-45ab-92f6-5b5e6ab4e15e",
+          "body": "",
+          "latency": 0,
+          "statusCode": 405,
+          "label": "Invalid input",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "6ce1e61c-901f-4531-af85-962d1fb4c7ee",
+      "documentation": "Deletes a pet",
+      "method": "delete",
+      "endpoint": "pet/:petId",
+      "responses": [
+        {
+          "uuid": "e8066bde-44eb-44ee-b5b9-ab56b1e2fce5",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid ID supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "8a69f19d-ca5a-4d28-a4ed-06500b40f632",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Pet not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "28e11574-3f2e-4f6f-bb31-e542ddb8347f",
+      "documentation": "Place an order for a pet",
+      "method": "post",
+      "endpoint": "store/order",
+      "responses": [
+        {
+          "uuid": "0e9895b8-7b9b-408e-a383-4599ea524023",
+          "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"petId\": {{faker 'datatype.number'}},\n  \"quantity\": {{faker 'datatype.number'}},\n  \"shipDate\": \"{{faker 'date.recent' 365}}\",\n  \"status\": \"{{oneOf (array 'placed' 'approved' 'delivered')}}\",\n  \"complete\": {{faker 'datatype.boolean'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "f1025337-62f9-455e-9b19-e352ab3325b1",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid Order",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "5a822bd7-e23d-4d5f-99ec-5d901b0748c5",
+      "documentation": "Find purchase order by ID",
+      "method": "get",
+      "endpoint": "store/order/:orderId",
+      "responses": [
+        {
+          "uuid": "b94881a7-86c2-44c6-976f-6b4292bfb6e4",
+          "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"petId\": {{faker 'datatype.number'}},\n  \"quantity\": {{faker 'datatype.number'}},\n  \"shipDate\": \"{{faker 'date.recent' 365}}\",\n  \"status\": \"{{oneOf (array 'placed' 'approved' 'delivered')}}\",\n  \"complete\": {{faker 'datatype.boolean'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "e75c9c0e-f5dd-4beb-b429-bd072bbc92b3",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid ID supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "3c9f601e-1c9c-4159-be75-4419570c808e",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Order not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "71ed93b8-563a-4909-a46b-0fc53739abe1",
+      "documentation": "Delete purchase order by ID",
+      "method": "delete",
+      "endpoint": "store/order/:orderId",
+      "responses": [
+        {
+          "uuid": "a8c5e5d3-806c-48cd-ad02-b8d68f6d3ae8",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid ID supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "b793170d-6b2b-4098-8dcc-24ed61b1406a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Order not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "1498f105-8af7-402e-996a-22ee5812152d",
+      "documentation": "Returns pet inventories by status",
+      "method": "get",
+      "endpoint": "store/inventory",
+      "responses": [
+        {
+          "uuid": "940181bd-07a2-4a9a-a4be-2e27cf04c380",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "fa1e4469-a30c-41b0-abca-5f1710719382",
+      "documentation": "Creates list of users with given input array",
+      "method": "post",
+      "endpoint": "user/createWithArray",
+      "responses": [
+        {
+          "uuid": "c639e0dd-6409-416a-bfd0-cf91ccf5c979",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "6a672a44-6636-46df-b982-83d3bd1d444a",
+      "documentation": "Creates list of users with given input array",
+      "method": "post",
+      "endpoint": "user/createWithList",
+      "responses": [
+        {
+          "uuid": "7478ef01-e54f-4336-a8fb-28c82d46a61a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "35af98f6-68c6-4216-8c75-3e46fb7f6019",
+      "documentation": "Get user by user name",
+      "method": "get",
+      "endpoint": "user/:username",
+      "responses": [
+        {
+          "uuid": "3d53e9ca-2a58-4ec7-8aed-7b27babf6a7a",
+          "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"username\": \"\",\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"email\": \"\",\n  \"password\": \"\",\n  \"phone\": \"\",\n  \"userStatus\": {{faker 'datatype.number'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "85c199a1-b569-4c7f-8e13-5210a96f6ca0",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid username supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "60589c4c-e32d-4043-a499-f82e6ba25cd0",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "9244fb36-e875-4f44-be18-cca964ede8cd",
+      "documentation": "Updated user",
+      "method": "put",
+      "endpoint": "user/:username",
+      "responses": [
+        {
+          "uuid": "fc889627-b427-41bf-a924-cf5b466fc33e",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid user supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "2cca66ec-bbc6-4a16-9042-610643be7582",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "f4dbc668-1868-4d85-8e47-0b2020ab9f68",
+      "documentation": "Delete user",
+      "method": "delete",
+      "endpoint": "user/:username",
+      "responses": [
+        {
+          "uuid": "8f41c982-fdd0-4561-866b-d1d3cfd633db",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid username supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "5eb3e4ee-7374-47e1-864a-398fcb18b2a2",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "e65127a5-1310-4a16-abee-e94245799782",
+      "documentation": "Logs user into the system",
+      "method": "get",
+      "endpoint": "user/login",
+      "responses": [
+        {
+          "uuid": "5ca768c4-66da-48d2-95a8-c684556e7573",
+          "body": "\"\"",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "X-Expires-After",
+              "value": ""
+            },
+            {
+              "key": "X-Rate-Limit",
+              "value": ""
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "89a31014-b829-4411-903a-fd5c5a00e920",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid username/password supplied",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "64f0889a-f3df-42a8-bd21-8fec4387425d",
+      "documentation": "Logs out current logged in user session",
+      "method": "get",
+      "endpoint": "user/logout",
+      "responses": [
+        {
+          "uuid": "c569d040-4d26-43ad-aa2b-eaf5b47bef9c",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "89b1a402-172b-450c-ba7c-c26ec910e870",
+      "documentation": "Create user",
+      "method": "post",
+      "endpoint": "user",
+      "responses": [
+        {
+          "uuid": "901610d0-a40e-4ef8-8e16-d027d85c4176",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "successful operation",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "",
+      "value": ""
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}

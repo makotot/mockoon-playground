@@ -1,0 +1,17 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mockoon-cli start --data ./petstore-v2.json",
+    "stop": "mockoon-cli stop"
+  },
+  "keywords": [],
+  "author": "makotot",
+  "license": "ISC",
+  "devDependencies": {
+    "@mockoon/cli": "1.6.2"
+  },
+  "dependencies": {}
+}
